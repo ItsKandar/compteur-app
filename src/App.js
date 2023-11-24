@@ -15,8 +15,28 @@ function App() {
         <Link to="/names">Générateur de noms</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Counter count={count} setCount={setCount} isError={isCounterError} setIsError={setIsCounterError}/>} />
-        <Route path="/names" element={<Names />} />
+        <Route path="/"
+        element={
+        <Counter 
+        count={count} 
+        onClickMinus={() => {
+          if (count > 0) {
+            setCount (count - 1)
+          } else {
+            setIsCounterError(true)
+          }
+        }}
+        OnClickPlus={() => {
+          setCount (count + 1)
+          setIsCounterError(false)
+        }}
+        errorMessage={
+          isCounterError ? "La valeur doit être positive" : ""
+        } 
+        />
+      }
+        />
+      <Route path="/names" element={<Names />} />
       </Routes>
     </BrowserRouter>
   );
