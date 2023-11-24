@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-function Counter({count, onClickMinus, OnClickPlus, errorMessage, setIsError}) {
+function Counter({count, onClickMinus, OnClickPlus, errorMessage}) {
 
   return (
     <div className="App">
